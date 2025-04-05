@@ -5,15 +5,10 @@ import os
 
 app = FastAPI()
 
-# Update CORS settings for production
-origins = [
-    "http://localhost:3000",  # Your local frontend
-    "https://your-frontend-domain.com"  # Replace with your frontend domain when deployed
-]
-
+# Allow all origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
